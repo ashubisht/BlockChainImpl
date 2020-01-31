@@ -19,28 +19,21 @@ public class Miner{
 		
 		this.doneHash=false;
 		int logicalCores = Runtime.getRuntime().availableProcessors(); //Trying optimum multithreading for nonce finding
-		//System.out.println("Logical com.ashubisht.blockchainImpl.core: " + logicalCores);
-		
 		long startTime = new Date().getTime();
 		
 		//Start of mining
-		
 		ExecutorService executorService = Executors.newFixedThreadPool(logicalCores);
 		
 		for(int i = 0; i< logicalCores; i++) {
-			
 			final Block tempBlock = new Block(block);
 			tempBlock.setNonce(i);
 			executorService.execute(new Runnable() {
 				
 				@Override
 				public void run() {
-					//System.out.println("Inside run method");
 					tempBlock.generateHash();
 					while(notGoldenHash(tempBlock) && !doneHash) {
-						//if(tempBlock.getNonce()>50) return; //For testing only
 						tempBlock.incrementNonceBy(logicalCores);
-						//System.out.println("Trying to generate hash by thread: "+ threadIndex + " nonceValue: "+ tempBlock.getNonce());
 						tempBlock.generateHash();
 					}
 					
@@ -62,13 +55,12 @@ public class Miner{
 		}
 		
 		//End of mining
-		
 		timeToHash = new Date().getTime() - startTime;
 		timeToHash /= 1000; //Conversion to second
 		
 		block.setNonce(nonce);
 		block.generateHash();
-		System.out.println("com.ashubisht.blockchainImpl.core.Block mined. Hash: " + block.getHash() +
+		System.out.println("Block mined. Hash: " + block.getHash() +
 				System.lineSeparator() + "Time to hash: " + timeToHash + " sec");
 		blockChain.addBlock(block);
 		reward += Constants.REWARD;

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67cc2c2d-0236-4481-a51d-4e0b258fcc97" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/BlockchainImpl.iws" beforeDir="false" afterPath="$PROJECT_DIR$/BlockchainImpl.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ashubisht/blockchainImpl/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ashubisht/blockchainImpl/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ashubisht/blockchainImpl/core/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ashubisht/blockchainImpl/core/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ashubisht/blockchainImpl/core/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ashubisht/blockchainImpl/core/Miner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
