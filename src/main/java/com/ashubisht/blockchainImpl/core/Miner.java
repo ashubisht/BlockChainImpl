@@ -1,4 +1,6 @@
-package com.blockchain.impl;
+package com.ashubisht.blockchainImpl.core;
+
+import lombok.Getter;
 
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
@@ -7,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Miner{
 	
+	@Getter
 	private double reward;
 	private long timeToHash;
 	private boolean doneHash = false;
@@ -16,7 +19,7 @@ public class Miner{
 		
 		this.doneHash=false;
 		int logicalCores = Runtime.getRuntime().availableProcessors(); //Trying optimum multithreading for nonce finding
-		//System.out.println("Logical core: " + logicalCores);
+		//System.out.println("Logical com.ashubisht.blockchainImpl.core: " + logicalCores);
 		
 		long startTime = new Date().getTime();
 		
@@ -28,7 +31,6 @@ public class Miner{
 			
 			final Block tempBlock = new Block(block);
 			tempBlock.setNonce(i);
-			//final int threadIndex = i;
 			executorService.execute(new Runnable() {
 				
 				@Override
@@ -66,7 +68,7 @@ public class Miner{
 		
 		block.setNonce(nonce);
 		block.generateHash();
-		System.out.println("Block mined. Hash: " + block.getHash() +
+		System.out.println("com.ashubisht.blockchainImpl.core.Block mined. Hash: " + block.getHash() +
 				System.lineSeparator() + "Time to hash: " + timeToHash + " sec");
 		blockChain.addBlock(block);
 		reward += Constants.REWARD;
@@ -76,10 +78,6 @@ public class Miner{
 	public boolean notGoldenHash(Block block) {
 		String leadingZeroes = new String(new char[Constants.DIFFICULTY]).replace('\0', '0');
 		return !block.getHash().substring(0, Constants.DIFFICULTY).equals(leadingZeroes);
-	}
-
-	public double getReward() {
-		return reward;
 	}
 
 }
