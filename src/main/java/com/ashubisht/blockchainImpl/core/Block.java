@@ -1,5 +1,6 @@
 package com.ashubisht.blockchainImpl.core;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import java.util.Date;
 
 @Data
-@RequiredArgsConstructor
 public class Block{
 	
 	private final int blockId;
@@ -25,13 +25,13 @@ public class Block{
 		this.nonce = block.nonce;
 	}
 
-	@Builder
-	public static Block newBlock(int blockId, String transaction, String prevHash){
-		Block block = new Block(blockId, transaction, prevHash);
-		block.timeStamp = new Date().getTime();
-		block.hash = block.generateHash();
-		block.nonce = 0;
-		return block;
+	public Block(int blockId, String transaction, String prevHash){
+		this.blockId = blockId;
+		this.transaction = transaction;
+		this.prevHash = prevHash;
+		this.timeStamp = new Date().getTime();
+		this.hash = this.generateHash();
+		this.nonce = 0;
 	}
 
 	//Separated method to be recalled after populating fields, if block not created via constructor

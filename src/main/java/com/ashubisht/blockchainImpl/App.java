@@ -10,7 +10,7 @@ public class App {
 	public static void main(String[] args) {
 		BlockChain blockChain = new BlockChain();
 		Miner miner = new Miner();
-		
+
 		Block genesis = new Block(0, "blankTxn", Constants.GENESIS_PREV_HASH);
 		miner.mine(genesis, blockChain);
 		
