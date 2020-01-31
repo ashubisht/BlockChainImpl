@@ -2,11 +2,12 @@ package com.ashubisht.blockchainImpl.core;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.val;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
 @Data
+@RequiredArgsConstructor
 public class Block{
 	
 	private final int blockId;
@@ -26,7 +27,7 @@ public class Block{
 
 	@Builder
 	public static Block newBlock(int blockId, String transaction, String prevHash){
-		val block = new Block(blockId, transaction, prevHash);
+		Block block = new Block(blockId, transaction, prevHash);
 		block.timeStamp = new Date().getTime();
 		block.hash = block.generateHash();
 		block.nonce = 0;

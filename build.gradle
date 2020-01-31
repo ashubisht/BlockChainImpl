@@ -26,6 +26,10 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
 
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     implementation 'org.jetbrains:annotations:15.0'
