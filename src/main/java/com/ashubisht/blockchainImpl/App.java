@@ -1,11 +1,16 @@
-package com.blockchain.impl;
+package com.ashubisht.blockchainImpl;
 
-public class Application {
+import com.ashubisht.blockchainImpl.core.Block;
+import com.ashubisht.blockchainImpl.core.BlockChain;
+import com.ashubisht.blockchainImpl.core.Constants;
+import com.ashubisht.blockchainImpl.core.Miner;
+
+public class App {
 	
 	public static void main(String[] args) {
 		BlockChain blockChain = new BlockChain();
 		Miner miner = new Miner();
-		
+
 		Block genesis = new Block(0, "blankTxn", Constants.GENESIS_PREV_HASH);
 		miner.mine(genesis, blockChain);
 		
