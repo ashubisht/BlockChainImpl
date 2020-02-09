@@ -1,10 +1,10 @@
-package com.blockchain.impl;
+package com.ashubisht.blockchainImpl.core;
 
 import java.security.MessageDigest;
 
-public class SHA256Runner {
+public class SHA256 {
 	
-	public static String hash(String data){
+	public static String computeHash(String data){
 		try{
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
 			md.update(data.getBytes());
